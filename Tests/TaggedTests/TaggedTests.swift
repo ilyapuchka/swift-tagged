@@ -52,7 +52,7 @@ final class TaggedTests: XCTestCase {
   }
 
   func testLosslessStringConvertible() {
-    XCTAssertEqual(Tagged<Tag, Bool>(rawValue: true), Tagged<Tag, Bool>("true"))
+    XCTAssertEqual(Tagged<Tag, Bool>(rawValue: true), Tagged<Tag, Bool>("true")!)
   }
 
   func testNumeric() {

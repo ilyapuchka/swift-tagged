@@ -110,7 +110,10 @@ extension Tagged: LosslessStringConvertible where RawValue: LosslessStringConver
   }
 }
 
-extension Tagged: Numeric where RawValue: Numeric {
+extension Tagged: Numeric, AdditiveArithmetic where RawValue: Numeric {}
+extension Tagged: SignedNumeric where RawValue: SignedNumeric {}
+
+extension Tagged where RawValue: Numeric {
   public typealias Magnitude = RawValue.Magnitude
 
   public init?<T>(exactly source: T) where T: BinaryInteger {
@@ -151,9 +154,6 @@ extension Tagged: Hashable where RawValue: Hashable {
   public var hashValue: Int {
     return self.rawValue.hashValue
   }
-}
-
-extension Tagged: SignedNumeric where RawValue: SignedNumeric {
 }
 
 // Commenting these out for Joe.
